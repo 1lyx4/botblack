@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BotBlack — TikTok</title>
+<style>
+  body { font-family: -apple-system, Segoe UI, Roboto, Arial, sans-serif; max-width: 640px; margin: 40px auto; padding: 0 16px;
+         background: #0b0b0f; color: #f2f2f5; line-height: 1.5; }
+  .box { background: #17171d; border-radius: 14px; padding: 18px; word-break: break-all; font-size: 14px; }
+  button { margin-top: 14px; background: #ffd60a; color: #111; border: 0; border-radius: 10px; padding: 12px 18px;
+           font-size: 16px; font-weight: 700; cursor: pointer; }
+  .ok { color: #19c37d; }
+</style>
+</head>
+<body>
+<h2>TikTok подключается</h2>
+<p>Скопируй команду ниже и отправь её боту:</p>
+<div class="box" id="cmd"></div>
+<button onclick="copy()">Скопировать</button>
+<p id="st"></p>
+<script>
+  var c = "/ttcode " + location.href;
+  document.getElementById("cmd").textContent = c;
+  function copy() {
+    navigator.clipboard.writeText(c).then(function () {
+      var s = document.getElementById("st"); s.textContent = "Скопировано ✓ — вставь в чат с ботом"; s.className = "ok";
+    });
+  }
+</script>
+</body>
+</html>
